@@ -31,13 +31,15 @@ func main() {
 
 	// 创建llm
 	log.Printf("===create llm===\n")
-	cm := createOpenAIChatModel(ctx)
-	// cm := createOllamaChatModel(ctx)
+	//cm := createOpenAIChatModel(ctx)
+	model := "deepseek-r1:8b"
+	//cm := createOllamaChatModel(ctx, model)
+	cm := createArkChatModel(ctx, model)
 	log.Printf("create llm success\n\n")
 
-	log.Printf("===llm generate===\n")
-	result := generate(ctx, cm, messages)
-	log.Printf("result: %+v\n\n", result)
+	//log.Printf("===llm generate===\n")
+	//result := generate(ctx, cm, messages)
+	//log.Printf("result: %+v\n\n", result)
 
 	log.Printf("===llm stream generate===\n")
 	streamResult := stream(ctx, cm, messages)
